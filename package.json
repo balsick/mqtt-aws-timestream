@@ -1,0 +1,36 @@
+{
+  "name": "mqtt-aws-timestream",
+  "version": "1.0.1",
+  "description": "Bridge between mqtt and AWS TimeStream",
+  "main": "./lib/mqtt-aws-timestream.js",
+  "scripts": {
+    "test": "node ./bin/index.js -r eu-west-1 -c ./test/config.json "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balsick/mqtt-aws-timestream.git"
+  },
+  "keywords": [
+    "aws",
+    "timestream",
+    "mqtt",
+    "bridge"
+  ],
+  "author": "balsick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balsick/mqtt-aws-timestream/issues"
+  },
+  "homepage": "https://github.com/balsick/mqtt-aws-timestream#readme",
+  "dependencies": {
+    "aws-sdk": "^2.787.0",
+    "https": "^1.0.0",
+    "jsonpath-plus": "^4.0.0",
+    "minimist": "^1.2.5",
+    "mqtt": "^4.2.1"
+  },
+  "bin": {
+    "mqtt-aws-timestream": "./bin/index.js"
+  },
+  "preferGlobal": true
+}
