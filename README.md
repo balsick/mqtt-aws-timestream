@@ -40,6 +40,9 @@ In aws section you can set:
 
 The configuration of each record can be solved using parts of the topic and of the message, that is solved by [json path](https://github.com/JSONPath-Plus/JSONPath).
 Every token becomes a `+` during the subscription.
+
+As per default, each message received will cause an immediate write operation to AWS Timestream. To reduce cost, it is better to reduce write operations. For this purpose, you can group consecutive messages of the same topic, up to 100 records per write operation, considering a max timeout since the first message received (timeout can be set using [ms module](https://github.com/vercel/ms)).
+
 e.g.
 ```json
 {
@@ -51,7 +54,7 @@ e.g.
     "mqtt": {
         "hostname": "mqtt.mybroker.dev",
         "port": 1883,
-        ...
+        // other mqtt options ...
     },
     "topics": [ {
         "topic": "/abc/iot/{house}/{device}",
@@ -66,9 +69,14 @@ e.g.
             "MeasureName": "{house}_{device}",
             "MeasureValue": "$.value",
             "MeasureValueType": "DOUBLE"
+        },
+        "push": {
+            "timeout": "2m",
+            "size": 100
         }
     },
-    ...]
+    //...
+    ]
 }
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "mqtt-aws-timestream",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Bridge between mqtt and AWS TimeStream",
   "main": "./lib/mqtt-aws-timestream.js",
   "scripts": {
@@ -27,7 +27,8 @@
     "https": "^1.0.0",
     "jsonpath-plus": "^4.0.0",
     "minimist": "^1.2.5",
-    "mqtt": "^4.2.1"
+    "mqtt": "^4.2.1",
+    "ms": "^2.1.2"
   },
   "bin": {
     "mqtt-aws-timestream": "./bin/index.js"
